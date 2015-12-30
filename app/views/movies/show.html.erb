@@ -51,11 +51,12 @@
 			</div>
 		</div>
 	</div>
+	<div class="panel-footer">
+		<%= link_to 'Edit', edit_movie_path(@movie) %> |
+		<%= link_to 'Back', movies_path %>
+	</div>
 </div>
 
-
-<%= link_to 'Edit', edit_movie_path(@movie) %> |
-<%= link_to 'Back', movies_path %>
 
 <script>
     $('.star-rating').raty({
