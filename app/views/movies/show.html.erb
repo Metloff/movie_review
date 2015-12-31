@@ -2,7 +2,12 @@
 	<div class="panel-body">
 		<div class="row">
 			<div class="col-md-4">
-				<%= image_tag @movie.image.url(:medium)%>
+				<% if @movie.img_url.blank? %>
+	        		<%= image_tag @movie.image.url(:medium)%>
+	   			<% else %>
+	   				<%= image_tag @movie.img_url%>
+	            <% end %>
+
 				<div class="star-rating" data-score= <%= @avg_review %>><b><%= @avg_review %></b> | </div>
 				<em><%= @movie.reviews.length%> reviews</em>
 				<div class="table-responsive">
@@ -38,7 +43,6 @@
 
 				<% if @movie.reviews.blank? %>
 					<h3> No reviews just yet, would you like to add the first!</h3>
-					<%= link_to 'Write a Review', new_movie_review_path(@movie), class: 'btn btn-danger'%>
 				<% else %>
 					<% @movie.reviews.each do |review|%>
 						<div class="reviews">
