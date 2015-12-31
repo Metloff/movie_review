@@ -15,7 +15,7 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
-
+$dark: #AA4B47;
 body {
 	background-color: #AA4B47;
 }
@@ -28,5 +28,30 @@ body {
 	border-bottom: 1px solid #EAEAEA;
 	.star-rating {
 		padding-bottom: 8px;
+	}
+}
+
+.bbtn {
+	background: rgba(250,250,250,.4);
+	outline: none;
+	border: 1px solid $dark;
+	height: 40px;
+	border-radius: 4px;
+	width: 25%;
+	display: inline-block;
+	font-size: 1.15em;
+	transition: all .4s ease-in-out;
+	cursor: pointer;
+	&:hover {
+		background: $dark;
+	}
+}
+
+.bttn {
+	border: 1px solid $dark;
+	transition: all .4s ease-in-out;
+	cursor: pointer;
+	&:hover {
+		background: $dark;
 	}
 }
