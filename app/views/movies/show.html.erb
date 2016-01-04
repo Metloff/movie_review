@@ -64,13 +64,16 @@
 	<div class="panel-footer">
 		<%= link_to 'Edit', edit_movie_path(@movie) %> |
 		<%= link_to 'Back', movies_path %>
+		<% if @movie.user == current_user %>
+			| <%= link_to 'Destroy', movie_path, method: :delete, data: {confirm: 'Are you sure?'} %>
+		<% end %>
 	</div>
 </div>
 
 
 <script>
     $('.star-rating').raty({
-      path: '/assets/',
+      path: '',
       readOnly: true,
       score: function() {
             return $(this).attr('data-score');

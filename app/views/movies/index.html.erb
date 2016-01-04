@@ -9,15 +9,16 @@
 <div class="row">
   <% @movies.each do |movie|%>
     <div class="col-sm-6 col-md-3">
-    <% if movie.img_url.blank? %>
-      <div class="thumbnail">
-        <%= link_to (image_tag movie.image.url(:medium), class: 'image'), movie %>
-      </div>
-    <% else %>
-      <div class="thumbnail">
-        <%= link_to (image_tag movie.img_url), movie %>
-      </div>
-    <% end %>
+      <% if movie.img_url.blank? %>
+        <div class="thumbnail">
+          <%= link_to (image_tag movie.image.url(:medium), class: 'image'), movie %>
+        </div>
+      <% else %>
+        <div class="thumbnail">
+          <%= link_to (image_tag movie.img_url), movie %>
+        </div>
+      <% end %>
     </div>
   <% end %>
 </div>
+
