@@ -20,6 +20,9 @@ class MoviesController < ApplicationController
     else
       @avg_review = @movie.reviews.average(:rating).round(2)
     end
+    if current_user
+      @reviewed = current_user.reviews.find_by(movie_id: params[:id])
+    end
   end
 
   def new

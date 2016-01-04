@@ -46,12 +46,18 @@
 				<% else %>
 					<% @movie.reviews.each do |review|%>
 						<div class="reviews">
+							<p><%= review.user.email%></p>
 							<div class='star-rating' data-score= <%= review.rating%>></div>
 							<p><%= review.comment%></p>
+							<% if review.user == current_user %>
+								<%= link_to 'Edit', edit_movie_review_path(review.movie, review)%>
+							<% end %>
 						</div>
 					<% end %>
 				<% end %>
-				<%= link_to 'Write a Review', new_movie_review_path(@movie), class: 'btn btn-danger btn-lg btn-block ' %>
+				<% if @reviewed.blank? %>
+					<%= link_to 'Write a Review', new_movie_review_path(@movie), class: 'btn btn-danger btn-lg btn-block ' %>
+				<% end %>
 			</div>
 		</div>
 	</div>
